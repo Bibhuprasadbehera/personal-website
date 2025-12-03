@@ -45,8 +45,8 @@ const Publications = () => {
         <Section id="publications" title="Publications & Research">
             <div className="space-y-8">
                 <div className="grid gap-6">
-                    {publications.map((pub, idx) => (
-                        <div key={idx} className="group relative p-6 rounded-xl bg-bio-panel border border-white/5 hover:border-bio-green/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,157,0.1)]">
+                    {publications.map((pub) => (
+                        <div key={pub.title} className="group relative p-6 rounded-xl bg-bio-panel border border-white/5 hover:border-bio-green/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,157,0.1)]">
                             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                                 <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-2">
@@ -82,8 +82,8 @@ const Publications = () => {
                         <span className="text-bio-purple">#</span> Conferences
                     </h3>
                     <div className="grid md:grid-cols-2 gap-4">
-                        {conferences.map((conf, idx) => (
-                            <div key={idx} className="p-4 rounded-lg bg-bio-panel/50 border border-white/5 hover:border-bio-purple/30 transition-colors flex items-start gap-3">
+                        {conferences.map((conf) => (
+                            <div key={conf} className="p-4 rounded-lg bg-bio-panel/50 border border-white/5 hover:border-bio-purple/30 transition-colors flex items-start gap-3">
                                 <div className="mt-1 min-w-[8px] h-[8px] rounded-full bg-bio-purple"></div>
                                 <p className="text-gray-300 text-sm">{conf}</p>
                             </div>

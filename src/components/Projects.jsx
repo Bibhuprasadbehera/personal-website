@@ -57,9 +57,9 @@ const Projects = () => {
     return (
         <Section id="projects" title="Projects">
             <div className="grid md:grid-cols-2 gap-8">
-                {projects.map((project, idx) => (
+                {projects.map((project) => (
                     <a
-                        key={idx}
+                        key={project.title}
                         href={project.link}
                         target={project.link !== '#' ? '_blank' : undefined}
                         rel={project.link !== '#' ? 'noopener noreferrer' : undefined}
@@ -79,8 +79,8 @@ const Projects = () => {
                         <p className="text-gray-400 mb-6 line-clamp-3">{project.desc}</p>
 
                         <div className="flex flex-wrap gap-2">
-                            {project.tags.map((tag, tIdx) => (
-                                <span key={tIdx} className="px-3 py-1 text-xs font-mono rounded-full bg-white/5 text-gray-300 border border-white/10">
+                            {project.tags.map((tag) => (
+                                <span key={tag} className="px-3 py-1 text-xs font-mono rounded-full bg-white/5 text-gray-300 border border-white/10">
                                     {tag}
                                 </span>
                             ))}

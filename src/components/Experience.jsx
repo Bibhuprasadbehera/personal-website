@@ -52,9 +52,9 @@ const Experience = () => {
                         <Briefcase /> Work Experience
                     </h3>
                     <div className="space-y-8 border-l-2 border-white/10 ml-3 pl-8 relative">
-                        {experiences.map((exp, idx) => (
-                            <div key={idx} className="relative">
-                                <span className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-bio-dark border-2 border-bio-blue"></span>
+                        {experiences.map((exp) => (
+                            <div key={exp.title} className="relative">
+                                <span className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-bio-dark border-2 border-bio-blue" />
                                 <div className="mb-1 text-sm text-bio-blue font-mono flex items-center gap-2">
                                     <Calendar size={14} /> {exp.period}
                                 </div>
@@ -72,9 +72,9 @@ const Experience = () => {
                         <GraduationCap /> Education
                     </h3>
                     <div className="space-y-8 border-l-2 border-white/10 ml-3 pl-8 relative">
-                        {education.map((edu, idx) => (
-                            <div key={idx} className="relative">
-                                <span className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-bio-dark border-2 border-bio-green"></span>
+                        {education.map((edu) => (
+                            <div key={edu.degree} className="relative">
+                                <span className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-bio-dark border-2 border-bio-green" />
                                 <div className="mb-1 text-sm text-bio-green font-mono flex items-center gap-2">
                                     <Calendar size={14} /> {edu.period}
                                 </div>

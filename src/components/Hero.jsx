@@ -1,17 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Mail, FileText, Database, Linkedin, GraduationCap, BookOpen } from 'lucide-react';
+import { Github, Mail, Linkedin, GraduationCap, BookOpen } from 'lucide-react';
 import NetworkBackground from './NetworkBackground';
+import CustomCursor from './CustomCursor';
 
 const Hero = () => {
+    const links = [
+        { href: '#contact', icon: Mail, label: 'Contact Me', primary: true },
+        { href: 'https://www.linkedin.com/in/bibhu-prasad-behera-b3a6b5203/', icon: Linkedin, label: 'LinkedIn' },
+        { href: 'https://scholar.google.com/citations?user=Tn-PU8YAAAAJ&hl=en', icon: GraduationCap, label: 'Google Scholar' },
+        { href: 'https://bibhuprasadbehera.substack.com/', icon: BookOpen, label: 'Blog' },
+        { href: 'https://github.com/Bibhuprasadbehera', icon: Github, label: 'GitHub' },
+    ];
+
+    const stats = [
+        { label: 'Publications', value: '5+' },
+        { label: 'Projects', value: '10+' },
+        { label: 'Citations', value: 'Coming Soon' },
+        { label: 'Experience', value: '2+ Years' },
+    ];
+
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-            {/* Background Grid & Effects */}
+            <CustomCursor />
             <NetworkBackground />
-            <div className="absolute inset-0 grid-bg opacity-30"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bio-dark/50 to-bio-dark"></div>
+            <div className="absolute inset-0 grid-bg opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bio-dark/50 to-bio-dark" />
 
-            {/* Floating Elements Animation */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {[...Array(5)].map((_, i) => (
                     <motion.div
@@ -56,37 +71,27 @@ const Hero = () => {
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4 mb-12">
-                        <a href="#contact" className="px-8 py-3 rounded-lg bg-bio-green text-bio-dark font-bold hover:bg-bio-green/90 transition-colors flex items-center gap-2">
-                            <Mail size={20} />
-                            Contact Me
-                        </a>
-                        <a href="https://www.linkedin.com/in/bibhu-prasad-behera-b3a6b5203/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/10 transition-colors flex items-center gap-2">
-                            <Linkedin size={20} />
-                            LinkedIn
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=Tn-PU8YAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/10 transition-colors flex items-center gap-2">
-                            <GraduationCap size={20} />
-                            Google Scholar
-                        </a>
-                        <a href="https://bibhuprasadbehera.substack.com/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/10 transition-colors flex items-center gap-2">
-                            <BookOpen size={20} />
-                            Blog
-                        </a>
-                        <a href="https://github.com/Bibhuprasadbehera" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/10 transition-colors flex items-center gap-2">
-                            <Github size={20} />
-                            GitHub
-                        </a>
+                        {links.map(({ href, icon: Icon, label, primary }) => (
+                            <a
+                                key={label}
+                                href={href}
+                                target={href.startsWith('http') ? '_blank' : undefined}
+                                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                className={`px-8 py-3 rounded-lg flex items-center gap-2 transition-colors ${
+                                    primary
+                                        ? 'bg-bio-green text-bio-dark font-bold hover:bg-bio-green/90'
+                                        : 'border border-white/20 hover:bg-white/10'
+                                }`}
+                            >
+                                <Icon size={20} />
+                                {label}
+                            </a>
+                        ))}
                     </div>
 
-                    {/* Stats/Highlights */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
-                        {[
-                            { label: 'Publications', value: '5+' },
-                            { label: 'Projects', value: '10+' },
-                            { label: 'Citations', value: 'Coming Soon' },
-                            { label: 'Experience', value: '2+ Years' },
-                        ].map((stat, index) => (
-                            <div key={index} className="p-4 rounded-lg bg-bio-panel border border-white/5 hover:border-bio-green/30 transition-colors">
+                        {stats.map((stat) => (
+                            <div key={stat.label} className="p-4 rounded-lg bg-bio-panel border border-white/5 hover:border-bio-green/30 transition-colors">
                                 <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
                                 <div className="text-sm text-gray-500 font-mono">{stat.label}</div>
                             </div>

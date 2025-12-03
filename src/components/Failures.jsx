@@ -27,9 +27,9 @@ const Failures = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                {failures.map((failure, idx) => (
+                {failures.map((failure) => (
                     <div
-                        key={idx}
+                        key={failure.title}
                         className="group relative p-6 rounded-xl bg-bio-panel border border-white/5 hover:border-red-500/30 transition-all duration-300"
                     >
                         {/* Icon */}

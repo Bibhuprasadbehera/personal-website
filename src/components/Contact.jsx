@@ -4,24 +4,17 @@ import { Mail, Phone, Github, MapPin, Loader2, CheckCircle, AlertCircle, Linkedi
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-    });
+    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [status, setStatus] = useState({ type: '', message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+    const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setStatus({ type: '', message: '' });
 
-        // Simple client-side validation
         if (!formData.name || !formData.email || !formData.message) {
             setStatus({ type: 'error', message: 'Please fill in all fields.' });
             setIsSubmitting(false);
@@ -29,28 +22,27 @@ const Contact = () => {
         }
 
         try {
-            // EmailJS configuration (user needs to add their keys)
-            // For now, using mailto as fallback
             const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
             const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
             window.location.href = `mailto:bibhu.behera@niser.ac.in?subject=${subject}&body=${body}`;
-
-            setStatus({
-                type: 'success',
-                message: 'Opening email client... Alternatively, you can email me directly at bibhu.behera@niser.ac.in'
-            });
-
-            // Reset form
+            setStatus({ type: 'success', message: 'Opening email client... Alternatively, you can email me directly at bibhu.behera@niser.ac.in' });
             setFormData({ name: '', email: '', message: '' });
         } catch (error) {
-            setStatus({
-                type: 'error',
-                message: 'Something went wrong. Please email me directly at bibhu.behera@niser.ac.in'
-            });
+            setStatus({ type: 'error', message: 'Something went wrong. Please email me directly at bibhu.behera@niser.ac.in' });
         } finally {
             setIsSubmitting(false);
         }
     };
+
+    const contactInfo = [
+        { icon: Mail, label: 'Email', value: 'bibhu.behera@niser.ac.in', href: 'mailto:bibhu.behera@niser.ac.in', color: 'green' },
+        { icon: Phone, label: 'Phone', value: '+91 9861288099', color: 'blue' },
+        { icon: MapPin, label: 'Location', value: 'Bhubaneswar, India', color: 'purple' },
+        { icon: Github, label: 'GitHub', value: 'Bibhuprasadbehera', href: 'https://github.com/Bibhuprasadbehera', color: 'green' },
+        { icon: Linkedin, label: 'LinkedIn', value: 'Connect', href: 'https://www.linkedin.com/in/bibhu-prasad-behera-b3a6b5203/', color: 'blue' },
+        { icon: GraduationCap, label: 'Google Scholar', value: 'View Profile', href: 'https://scholar.google.com/citations?user=Tn-PU8YAAAAJ&hl=en', color: 'purple' },
+        { icon: BookOpen, label: 'Blog', value: 'Read Articles', href: 'https://bibhuprasadbehera.substack.com/', color: 'green' },
+    ];
 
     return (
         <Section id="contact" title="Get In Touch">
@@ -63,75 +55,23 @@ const Contact = () => {
                         </p>
 
                         <div className="space-y-6">
-                            <div className="flex items-center gap-4 text-gray-300">
-                                <div className="p-3 rounded-lg bg-bio-dark/50 text-bio-green">
-                                    <Mail size={20} />
+                            {contactInfo.map(({ icon: Icon, label, value, href, color }) => (
+                                <div key={label} className="flex items-center gap-4 text-gray-300">
+                                    <div className={`p-3 rounded-lg bg-bio-dark/50 text-bio-${color}`}>
+                                        <Icon size={20} />
+                                    </div>
+                                    <div>
+                                        <div className="text-xs text-gray-500 font-mono">{label}</div>
+                                        {href ? (
+                                            <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} className="hover:text-white transition-colors">
+                                                {value}
+                                            </a>
+                                        ) : (
+                                            <div>{value}</div>
+                                        )}
+                                    </div>
                                 </div>
-                                <div>
-                                    <div className="text-xs text-gray-500 font-mono">Email</div>
-                                    <a href="mailto:bibhu.behera@niser.ac.in" className="hover:text-white transition-colors">bibhu.behera@niser.ac.in</a>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-4 text-gray-300">
-                                <div className="p-3 rounded-lg bg-bio-dark/50 text-bio-blue">
-                                    <Phone size={20} />
-                                </div>
-                                <div>
-                                    <div className="text-xs text-gray-500 font-mono">Phone</div>
-                                    <div>+91 9861288099</div>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-4 text-gray-300">
-                                <div className="p-3 rounded-lg bg-bio-dark/50 text-bio-purple">
-                                    <MapPin size={20} />
-                                </div>
-                                <div>
-                                    <div className="text-xs text-gray-500 font-mono">Location</div>
-                                    <div>Bhubaneswar, India</div>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-4 text-gray-300">
-                                <div className="p-3 rounded-lg bg-bio-dark/50 text-bio-green">
-                                    <Github size={20} />
-                                </div>
-                                <div>
-                                    <div className="text-xs text-gray-500 font-mono">GitHub</div>
-                                    <a href="https://github.com/Bibhuprasadbehera" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Bibhuprasadbehera</a>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-4 text-gray-300">
-                                <div className="p-3 rounded-lg bg-bio-dark/50 text-bio-blue">
-                                    <Linkedin size={20} />
-                                </div>
-                                <div>
-                                    <div className="text-xs text-gray-500 font-mono">LinkedIn</div>
-                                    <a href="https://www.linkedin.com/in/bibhu-prasad-behera-b3a6b5203/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Connect</a>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-4 text-gray-300">
-                                <div className="p-3 rounded-lg bg-bio-dark/50 text-bio-purple">
-                                    <GraduationCap size={20} />
-                                </div>
-                                <div>
-                                    <div className="text-xs text-gray-500 font-mono">Google Scholar</div>
-                                    <a href="https://scholar.google.com/citations?user=Tn-PU8YAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">View Profile</a>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-4 text-gray-300">
-                                <div className="p-3 rounded-lg bg-bio-dark/50 text-bio-green">
-                                    <BookOpen size={20} />
-                                </div>
-                                <div>
-                                    <div className="text-xs text-gray-500 font-mono">Blog</div>
-                                    <a href="https://bibhuprasadbehera.substack.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Read Articles</a>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
 

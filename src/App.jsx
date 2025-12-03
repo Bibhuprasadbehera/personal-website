@@ -11,22 +11,24 @@ import Failures from './components/Failures';
 function App() {
   console.log("Rendering App component");
   return (
-    <div className="min-h-screen bg-bio-dark text-bio-text selection:bg-bio-green selection:text-bio-dark font-sans">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Publications />
-        <Experience />
-        <Projects />
-        <Failures />
-        <Contact />
-      </main>
+    <>
+      <div className="min-h-screen bg-bio-dark text-bio-text selection:bg-bio-green selection:text-bio-dark font-sans">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Publications />
+          <Experience />
+          <Projects />
+          <Failures />
+          <Contact />
+        </main>
 
-      <footer className="py-8 text-center text-gray-500 text-sm border-t border-white/5 bg-bio-panel">
-        <p>&copy; {new Date().getFullYear()} Bibhu Prasad Behera. Built with React & Tailwind.</p>
-      </footer>
-    </div>
+        <footer className="py-8 text-center text-gray-500 text-sm border-t border-white/5 bg-bio-panel">
+          <p>&copy; {new Date().getFullYear()} Bibhu Prasad Behera. Built with React & Tailwind.</p>
+        </footer>
+      </div>
+    </>
   );
 }
 

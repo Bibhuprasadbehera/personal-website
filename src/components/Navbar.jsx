@@ -2,17 +2,10 @@ import React, { useState } from 'react';
 import { Menu, X, Terminal, Dna } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const navItems = ['About', 'Publications', 'Experience', 'Projects', 'Failures', 'Contact'];
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
-    const navItems = [
-        { name: 'About', href: '#about' },
-        { name: 'Publications', href: '#publications' },
-        { name: 'Experience', href: '#experience' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Failures', href: '#failures' },
-        { name: 'Contact', href: '#contact' },
-    ];
 
     return (
         <nav className="fixed w-full z-50 top-0 start-0 border-b border-white/10 bg-bio-dark/80 backdrop-blur-md">
@@ -39,14 +32,14 @@ const Navbar = () => {
                 <div className={`${isOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-default">
                     <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-bio-panel md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
                         {navItems.map((item) => (
-                            <li key={item.name}>
+                            <li key={item}>
                                 <a
-                                    href={item.href}
+                                    href={`#${item.toLowerCase()}`}
                                     className="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-bio-green md:p-0 transition-colors duration-300 font-mono"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     <span className="text-bio-purple mr-1">&lt;</span>
-                                    {item.name}
+                                    {item}
                                     <span className="text-bio-purple ml-1">/&gt;</span>
                                 </a>
                             </li>

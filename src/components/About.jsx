@@ -3,24 +3,19 @@ import Section from './Section';
 import { Code, FlaskConical, Database, Brain } from 'lucide-react';
 
 const About = () => {
-    const dryLabSkills = [
-        "ML/DL (PyTorch, TensorFlow)",
-        "Object Detection",
-        "Multimodal Learning",
-        "NGS Analysis (scRNA, bulkRNA)",
-        "Full Stack Dev (React, Django)",
-        "Bioinformatics",
-        "Python & R",
-        "Shell Scripting"
-    ];
-
-    const wetLabSkills = [
-        "Molecular Biology (Cloning, PCR)",
-        "Gel Electrophoresis",
-        "Protein Analysis (SDS-PAGE, Western Blot)",
-        "Cell Culture (Mammalian lines)",
-        "Microscopy (Fluorescence, Confocal)",
-        "Aseptic Techniques"
+    const skills = [
+        {
+            title: 'Dry Lab / Computational',
+            icon: Code,
+            color: 'green',
+            items: ["ML/DL (PyTorch, TensorFlow)", "Object Detection", "Multimodal Learning", "NGS Analysis (scRNA, bulkRNA)", "Full Stack Dev (React, Django)", "Bioinformatics", "Python & R", "Shell Scripting"]
+        },
+        {
+            title: 'Wet Lab / Experimental',
+            icon: FlaskConical,
+            color: 'purple',
+            items: ["Molecular Biology (Cloning, PCR)", "Gel Electrophoresis", "Protein Analysis (SDS-PAGE, Western Blot)", "Cell Culture (Mammalian lines)", "Microscopy (Fluorescence, Confocal)", "Aseptic Techniques"]
+        }
     ];
 
     return (
@@ -39,33 +34,21 @@ const About = () => {
                 </div>
 
                 <div className="grid gap-6">
-                    <div className="p-6 rounded-xl bg-bio-panel border border-bio-green/20 hover:border-bio-green/50 transition-colors">
-                        <div className="flex items-center gap-3 mb-4 text-bio-green">
-                            <Code size={24} />
-                            <h3 className="text-xl font-bold font-mono">Dry Lab / Computational</h3>
+                    {skills.map(({ title, icon: Icon, color, items }) => (
+                        <div key={title} className={`p-6 rounded-xl bg-bio-panel border border-bio-${color}/20 hover:border-bio-${color}/50 transition-colors`}>
+                            <div className={`flex items-center gap-3 mb-4 text-bio-${color}`}>
+                                <Icon size={24} />
+                                <h3 className="text-xl font-bold font-mono">{title}</h3>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                {items.map((skill, idx) => (
+                                    <span key={idx} className={`px-3 py-1 text-sm rounded-full bg-bio-${color}/10 text-bio-${color} border border-bio-${color}/20`}>
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
-                        <div className="flex flex-wrap gap-2">
-                            {dryLabSkills.map((skill, idx) => (
-                                <span key={idx} className="px-3 py-1 text-sm rounded-full bg-bio-green/10 text-bio-green border border-bio-green/20">
-                                    {skill}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="p-6 rounded-xl bg-bio-panel border border-bio-purple/20 hover:border-bio-purple/50 transition-colors">
-                        <div className="flex items-center gap-3 mb-4 text-bio-purple">
-                            <FlaskConical size={24} />
-                            <h3 className="text-xl font-bold font-mono">Wet Lab / Experimental</h3>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                            {wetLabSkills.map((skill, idx) => (
-                                <span key={idx} className="px-3 py-1 text-sm rounded-full bg-bio-purple/10 text-bio-purple border border-bio-purple/20">
-                                    {skill}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </Section>
