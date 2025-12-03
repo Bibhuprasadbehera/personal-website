@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bio-dark text-bio-text font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono font-bold;
+  }
+}
+
+.glass-panel {
+  @apply bg-bio-panel/80 backdrop-blur-md border border-white/10 shadow-xl;
+}
+
+.neon-text {
+  text-shadow: 0 0 10px currentColor;
+}
+
+.grid-bg {
+  background-size: 50px 50px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
