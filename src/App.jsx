@@ -6,6 +6,7 @@ import Publications from './components/Publications';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Failures from './components/Failures';
 
 function App() {
   console.log("Rendering App component");
@@ -18,6 +19,7 @@ function App() {
         <Publications />
         <Experience />
         <Projects />
+        <Failures />
         <Contact />
       </main>
 

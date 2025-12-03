@@ -1,0 +1,22 @@
+# Website Enhancement Walkthrough
+
+## Manual TODO List for User
+
+### Content to Add (🔴 User action required)
+
+1. **Profile Photo**
+   - Add image to `/public/profile.jpg`
+   - Update Hero section to use it instead of placeholder
+
+2. **Project Screenshots**
+   - Add images to `/public/projects/`
+   - Update Projects component with image paths
+
+3. **Resume PDF**
+   - Add to `/public/resume.pdf`
+   - Add download button in Hero or Experience section
+
+4. **Favicon**
+   - Create custom DNA helix icon
+   - Replace [/public/vite.svg](file:///home/bibhu/Documents/personal-website/public/vite.svg) with your own
+   - Update `<link rel="icon">` in [index.html](file:///home/bibhu/Documents/personal-website/index.html)

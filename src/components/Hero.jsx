@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Mail, FileText, Database } from 'lucide-react';
+import { Github, Mail, FileText, Database, Linkedin, GraduationCap, BookOpen } from 'lucide-react';
+import NetworkBackground from './NetworkBackground';
 
 const Hero = () => {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
             {/* Background Grid & Effects */}
+            <NetworkBackground />
             <div className="absolute inset-0 grid-bg opacity-30"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bio-dark/50 to-bio-dark"></div>
 
@@ -36,7 +38,11 @@ const Hero = () => {
             </div>
 
             <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-                <div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
                     <div className="inline-block mb-4 px-4 py-1 rounded-full border border-bio-green/30 bg-bio-green/10 text-bio-green font-mono text-sm">
                         System.init(Bioinformatics_Lab)
                     </div>
@@ -54,9 +60,17 @@ const Hero = () => {
                             <Mail size={20} />
                             Contact Me
                         </a>
-                        <a href="#projects" className="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/10 transition-colors flex items-center gap-2">
-                            <Database size={20} />
-                            View Research
+                        <a href="https://www.linkedin.com/in/bibhu-prasad-behera-b3a6b5203/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/10 transition-colors flex items-center gap-2">
+                            <Linkedin size={20} />
+                            LinkedIn
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=Tn-PU8YAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/10 transition-colors flex items-center gap-2">
+                            <GraduationCap size={20} />
+                            Google Scholar
+                        </a>
+                        <a href="https://bibhuprasadbehera.substack.com/" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/10 transition-colors flex items-center gap-2">
+                            <BookOpen size={20} />
+                            Blog
                         </a>
                         <a href="https://github.com/Bibhuprasadbehera" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/10 transition-colors flex items-center gap-2">
                             <Github size={20} />
@@ -78,7 +92,7 @@ const Hero = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
