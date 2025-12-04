@@ -36,21 +36,21 @@ const Projects = () => {
             desc: "Machine learning model for predicting locust swarm patterns to aid in agricultural protection.",
             icon: <Activity size={40} className="text-bio-green" />,
             tags: ["ML", "Python", "Prediction"],
-            link: "#"
+            link: "https://drive.google.com/file/d/1HmSfh7RpiTYFYgA-EsYElbnoeKsT2NbM/view?usp=drive_link"
         },
         {
             title: "Economic Impact of Nuclear Energy",
             desc: "Economic analysis using ML techniques to study the impact of nuclear energy adoption.",
             icon: <TrendingUp size={40} className="text-bio-blue" />,
             tags: ["Data Analysis", "Economics", "ML"],
-            link: "#"
+            link: "https://drive.google.com/file/d/1DwvDYLsUYufDspmdZmEHuB_wL658L-Q3/view?usp=sharing"
         },
         {
             title: "Rain Prediction (Kaggle)",
             desc: "Weather prediction model achieving 6th place in Kaggle competition.",
             icon: <CloudRain size={40} className="text-bio-purple" />,
             tags: ["Kaggle", "XGBoost", "Weather"],
-            link: "#"
+            link: "https://drive.google.com/file/d/1rqoK0t94Zc9Jmlb3gtBpq4zEYIhOLjeZ/view?usp=sharing"
         }
     ];
 
@@ -97,14 +97,19 @@ const Projects = () => {
                 ))}
             </div>
 
-            <div className="mt-12 text-center">
+            <div className="mt-12 text-center space-y-4">
                 <a href="https://github.com/Bibhuprasadbehera" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/5 hover:bg-white/10 text-white font-mono transition-colors border border-white/10">
                     <Github size={20} />
                     View More on GitHub
+                </a>
+                <a href="https://drive.google.com/drive/folders/1-oV-U_8Pfg2OU1ZXjqVNtldICZfxzwLR?usp=drive_link" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-bio-green/10 hover:bg-bio-green/20 text-bio-green font-mono transition-colors border border-bio-green/20 ml-4">
+                    <ExternalLink size={20} />
+                    Other Projects
                 </a>
             </div>
         </Section>
     );
 };
+
 
 export default Projects;

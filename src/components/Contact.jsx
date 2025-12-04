@@ -24,20 +24,20 @@ const Contact = () => {
         try {
             const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
             const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-            window.location.href = `mailto:bibhu.behera@niser.ac.in?subject=${subject}&body=${body}`;
-            setStatus({ type: 'success', message: 'Opening email client... Alternatively, you can email me directly at bibhu.behera@niser.ac.in' });
+            window.location.href = `mailto:bibhubehera2001@gmail.com?subject=${subject}&body=${body}`;
+            setStatus({ type: 'success', message: 'Opening email client... Alternatively, you can email me directly at bibhubehera2001@gmail.com' });
             setFormData({ name: '', email: '', message: '' });
         } catch (error) {
-            setStatus({ type: 'error', message: 'Something went wrong. Please email me directly at bibhu.behera@niser.ac.in' });
+            setStatus({ type: 'error', message: 'Something went wrong. Please email me directly at bibhubehera2001@gmail.com' });
         } finally {
             setIsSubmitting(false);
         }
     };
 
     const contactInfo = [
-        { icon: Mail, label: 'Email', value: 'bibhu.behera@niser.ac.in', href: 'mailto:bibhu.behera@niser.ac.in', color: 'green' },
+        { icon: Mail, label: 'Email', value: 'bibhubehera2001@gmail.com', href: 'mailto:bibhubehera2001@gmail.com', color: 'green' },
+        { icon: Mail, label: 'Alt Email', value: 'bbibhuprasad0011@gmail.com', href: 'mailto:bbibhuprasad0011@gmail.com', color: 'green' },
         { icon: Phone, label: 'Phone', value: '+91 9861288099', color: 'blue' },
-        { icon: MapPin, label: 'Location', value: 'Bhubaneswar, India', color: 'purple' },
         { icon: Github, label: 'GitHub', value: 'Bibhuprasadbehera', href: 'https://github.com/Bibhuprasadbehera', color: 'green' },
         { icon: Linkedin, label: 'LinkedIn', value: 'Connect', href: 'https://www.linkedin.com/in/bibhu-prasad-behera-b3a6b5203/', color: 'blue' },
         { icon: GraduationCap, label: 'Google Scholar', value: 'View Profile', href: 'https://scholar.google.com/citations?user=Tn-PU8YAAAAJ&hl=en', color: 'purple' },

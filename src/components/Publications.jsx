@@ -23,13 +23,15 @@ const Publications = () => {
             title: "Preprint Commons: A Database for Tracking Trends, Impact, and Collaboration in Open Science",
             journal: "Manuscript in communication",
             role: "First Author",
-            type: "Research Article"
+            type: "Research Article",
+            link: "https://github.com/Bibhuprasadbehera/Preprint-commons"
         },
         {
             title: "DeepMotifInteract: A Motif-Aware Neural Architecture for PPI Prediction",
             journal: "Manuscript in communication",
             role: "Equal Contribution",
-            type: "Research Article"
+            type: "Research Article",
+            link: "https://github.com/Bibhuprasadbehera/PPI-Predictor"
         }
     ];
 
@@ -40,6 +42,8 @@ const Publications = () => {
         "Accelerating Biology 2025: (CDAC PUNE) - Poster presentation",
         "NCURB 2024 (IISER TVM) - Speaker"
     ];
+
+    const conferenceLink = "https://drive.google.com/drive/folders/1eDWPQJ92L2Ldfk-DcYaThGXoPuH4bsmb?usp=sharing";
 
     return (
         <Section id="publications" title="Publications & Research">
@@ -88,6 +92,12 @@ const Publications = () => {
                                 <p className="text-gray-300 text-sm">{conf}</p>
                             </div>
                         ))}
+                    </div>
+                    <div className="mt-6 text-center">
+                        <a href={conferenceLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-bio-purple/10 hover:bg-bio-purple/20 text-bio-purple font-mono transition-colors border border-bio-purple/20">
+                            <ExternalLink size={18} />
+                            View All Presentations
+                        </a>
                     </div>
                 </div>
             </div>

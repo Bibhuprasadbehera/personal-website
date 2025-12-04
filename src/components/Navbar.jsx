@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Menu, X, Terminal, Dna } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const navItems = ['About', 'Publications', 'Experience', 'Projects', 'Failures', 'Contact'];
+const navItems = ['About', 'Publications', 'Experience', 'Projects', 'Contact'];
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <nav className="fixed w-full z-50 top-0 start-0 border-b border-white/10 bg-bio-dark/80 backdrop-blur-md">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:px-6">
                 <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse group">
                     <div className="relative">
                         <Terminal className="w-8 h-8 text-bio-green absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

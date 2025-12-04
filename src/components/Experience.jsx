@@ -1,32 +1,42 @@
 import React from 'react';
 import Section from './Section';
-import { Briefcase, GraduationCap, Calendar } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, ExternalLink } from 'lucide-react';
 
 const Experience = () => {
     const experiences = [
         {
+            title: "Consultant & Researcher",
+            company: "Shodhaka",
+            period: "Dec 2024 - Present",
+            desc: "Contributing to projects involving scRNA-seq analysis and multivariate metagenomics analysis."
+        },
+        {
             title: "Researcher",
             company: "DEEPGENE C-CAMP Bangalore",
-            period: "Sep 2024 - Aug 2025",
-            desc: "Leveraging Whole Slide Imaging (WSI) as a Cost-Effective Alternative to High-Throughput, Expensive genetic testing for Cancer prediction (Startup Incubation)."
+            period: "Sep 2024 - Oct 2025",
+            desc: "Leveraging Whole Slide Imaging (WSI) as a Cost-Effective Alternative to High-Throughput, Expensive genetic testing for Cancer prediction (Startup Incubation).",
+            link: "https://drive.google.com/file/d/1Bj2e6Pj2L0rra6f9ojnK1tFW648IXgW6/view?usp=sharing"
         },
         {
             title: "Internship",
             company: "C-CAMP Bangalore (Dr. Binay Panda)",
             period: "Mar 2024 - May 2024",
-            desc: "Project: Use of WSI as a substitute for low cost pathology instead of high throughput and expensive methods to stratify patients."
+            desc: "Project: Use of WSI as a substitute for low cost pathology instead of high throughput and expensive methods to stratify patients.",
+            link: "https://drive.google.com/file/d/1Bj2e6Pj2L0rra6f9ojnK1tFW648IXgW6/view?usp=sharing"
         },
         {
             title: "Internship",
             company: "NISER (Dr. V Badireenath Konkimalla)",
             period: "May 2023 - July 2023",
-            desc: "Project: Creation of Peptide Alkaloid Database. Worked on this multiple times."
+            desc: "Project: Creation of Peptide Alkaloid Database. Worked on this multiple times.",
+            link: "https://drive.google.com/file/d/1DBeSQK_osotu7SdJQxg1pzXb5Qq_BYeq/view?usp=sharing"
         },
         {
             title: "Internship",
             company: "Tezpur University (Dr. Anupam Nath Jha)",
             period: "May 2022 - July 2022",
-            desc: "Project: FKBP5: Its Impact on Stress, Sepsis, GR Signaling, and Expression in PD-L1."
+            desc: "Project: FKBP5: Its Impact on Stress, Sepsis, GR Signaling, and Expression in PD-L1.",
+            link: "https://drive.google.com/file/d/1Tm3aYUwcbFdpcvXlpUu4mczNDhjJtZWn/view?usp=sharing"
         }
     ];
 
@@ -53,7 +63,7 @@ const Experience = () => {
                     </h3>
                     <div className="space-y-8 border-l-2 border-white/10 ml-3 pl-8 relative">
                         {experiences.map((exp) => (
-                            <div key={exp.title} className="relative">
+                            <div key={exp.title + exp.company} className="relative">
                                 <span className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-bio-dark border-2 border-bio-blue" />
                                 <div className="mb-1 text-sm text-bio-blue font-mono flex items-center gap-2">
                                     <Calendar size={14} /> {exp.period}
@@ -61,6 +71,12 @@ const Experience = () => {
                                 <h4 className="text-xl font-bold text-white">{exp.title}</h4>
                                 <div className="text-gray-400 mb-2">{exp.company}</div>
                                 <p className="text-gray-500 text-sm leading-relaxed">{exp.desc}</p>
+                                {exp.link && (
+                                    <a href={exp.link} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 text-xs text-bio-blue hover:text-bio-green transition-colors">
+                                        <ExternalLink size={12} />
+                                        View Certificate
+                                    </a>
+                                )}
                             </div>
                         ))}
                     </div>

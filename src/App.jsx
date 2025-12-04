@@ -5,6 +5,7 @@ import About from './components/About';
 import Publications from './components/Publications';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Collaboration from './components/Collaboration';
 import Contact from './components/Contact';
 import Failures from './components/Failures';
 
@@ -21,6 +22,7 @@ function App() {
           <Experience />
           <Projects />
           <Failures />
+          <Collaboration />
           <Contact />
         </main>
 
