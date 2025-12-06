@@ -5,7 +5,7 @@ import { Briefcase, GraduationCap, Calendar, ExternalLink } from 'lucide-react';
 const Experience = () => {
     const experiences = [
         {
-            title: "Consultant & Researcher",
+            title: "Freelance Consultant & Researcher",
             company: "Shodhaka",
             period: "Dec 2024 - Present",
             desc: "Contributing to projects involving scRNA-seq analysis and multivariate metagenomics analysis."
@@ -115,6 +115,23 @@ const Experience = () => {
                             <div className="p-4 rounded-lg bg-bio-panel border border-white/5">
                                 <div className="font-bold text-white">Kaggle Competition (Rain Prediction)</div>
                                 <div className="text-bio-purple text-sm">6th Place (2024)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Workshops */}
+                    <div className="mt-12">
+                        <h3 className="text-2xl font-bold mb-6 text-bio-blue">Workshops & Training</h3>
+                        <div className="space-y-4">
+                            <div className="p-4 rounded-lg bg-bio-panel border border-white/5">
+                                <div className="font-bold text-white">NGS Analysis Workshop</div>
+                                <div className="text-bio-blue text-sm">Shodhaka Life Sciences</div>
+                                <div className="text-gray-400 text-xs mt-1">Conducted training on Next-Generation Sequencing data analysis pipelines.</div>
+                            </div>
+                            <div className="p-4 rounded-lg bg-bio-panel border border-white/5">
+                                <div className="font-bold text-white">Microarray Analysis Workshop</div>
+                                <div className="text-bio-blue text-sm">Agilent Technologies</div>
+                                <div className="text-gray-400 text-xs mt-1">Specialized training on microarray data processing and interpretation.</div>
                             </div>
                         </div>
                     </div>
